@@ -26,10 +26,8 @@ app.post('/repos', function (req, res) {
   })
 });
 
-
-
 app.get('/repos', function (req, res) {
-  db.Repo.find({}).sort({'forks': -1}).limit(300).exec((err, repos) => {
+  db.Repo.find({}).sort({'forks': -1}).limit(25).exec((err, repos) => {
     if(err) {
       res.sendStatus(500)
     }
